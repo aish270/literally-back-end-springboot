@@ -8,32 +8,45 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="studenttable")
+@Table(name="book")
 public class StudentEntity {
 	@Id
-	@Column(name="sid")
-	private int sid;
-	@Column(name="sname")
-	private String sname;
-	public StudentEntity(int sid, String sname) {
+	@Column(name="bid")
+	private int bid;
+	@Column(name="bname")
+	private String bname;
+	@Column(name="author")
+	private String author;
+	public StudentEntity(int bid, String bname,String author) {
 		super();
-		this.sid = sid;
-		this.sname = sname;
+		this.bid = bid;
+		this.bname = bname;
+		this.author= author;
 	}
 	public StudentEntity() {
 		
 	}
 	
-	public int getSid() {
-		return sid;
+	public int getbid() {
+		return bid;
 	}
-	public void setSid(int sid) {
-		this.sid = sid;
+	public void setbid(int bid) {
+		this.bid = bid;
 	}
-	public String getSname() {
-		return sname;
+	public String getbname() {
+		return bname;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setbname(String bname) {
+		this.bname = bname;
+	}
+	public void setauthor(String author) {
+		this.author = author;
+	}
+	public String getauthor() {
+		return author;
+	}
+	
+	public String toString() {
+		return "bid= "+bid+"bname= "+bname+"author= "+author;
 	}
 }

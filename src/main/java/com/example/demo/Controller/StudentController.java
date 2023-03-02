@@ -31,10 +31,34 @@ import com.example.demo.Service.StudentService;
 		public StudentEntity updateinfo(@RequestBody StudentEntity s1) {
 			return st.updateDetails(s1);
 		}
-		@DeleteMapping("/deleteDetails/{sid}")
-		public String deleteInfo(@PathVariable("sid") int sid) {
-			st.deleteDetails(sid);
+		@DeleteMapping("/deleteDetails/{bid}")
+		public String deleteInfo(@PathVariable("bid") int bid) {
+			st.deleteDetails(bid);
 			return "deleted";
+		}
+		@GetMapping("/page/{field}")
+		public List<StudentEntity> getSort(@PathVariable String field){
+			return st.getSorted(field);
+		}
+		@GetMapping("/page/{offset}/{pagesize}")
+		public List<StudentEntity> getpage(@PathVariable int offset,@PathVariable int pagesize){
+			return st.getWithPagination(offset, pagesize);
+		}
+		
+		@GetMapping("/p/{bid}/{author}")
+		public List<StudentEntity> getboo(@PathVariable("bid") int id ,@PathVariable("author") String auth){
+			return st.getbook(id,auth);
+			
+		}
+		@DeleteMapping("/d/{bid}")
+		public String del(@PathVariable("bid") int bid) {
+			 st.delbyid(bid);
+			 return "deleted";
+		}
+		@PutMapping("/u/{bname}/{bid}")
+		public String upbid(@PathVariable("bname") String bname,@PathVariable("bid") int bid) {
+			st.upid(bname, bid);
+			return "updated";
 		}
 
 }
