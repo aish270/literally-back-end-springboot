@@ -32,6 +32,9 @@ public class StudentService {
 	{
 		srep.deleteById(n);
 	}
+	public void deletename(String a) {
+		srep.deleteByBname(a);
+	}
 	public List<StudentEntity> getSorted(String field){
 		return srep.findAll(Sort.by(Sort.Direction.ASC,field));
 	}
@@ -42,11 +45,16 @@ public class StudentService {
 	public List<StudentEntity> getbook(int s,String a){
 		return srep.getAllbook(s,a);
 	}
+	public List<StudentEntity> getbooks(String a){
+		return srep.getbookr(a);
+	}
 	public Integer delbyid(int i) {
 		return srep.deleteByBid(i);
 	}
 	public Integer upid(String s,int i) {
 		return srep.updatebid(s,i);
 	}
+	
+
 
 }
